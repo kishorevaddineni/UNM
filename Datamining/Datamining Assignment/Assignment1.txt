@@ -1,0 +1,176 @@
+X(1,:) = round(sin(0:2*pi+1)*1000)+ rand(1,8)*100;
+X(2,:) = round(sin(0:2*pi+1)*1000)+ rand(1,8)*100;
+X(3,:) = round(sin(0:2*pi+1)*1000)+ rand(1,8)*100;
+X(4,:) = round(sin(0:2*pi+1)*1000)+ rand(1,8)*100;
+X(5,:) = round(sin(0:5/2:(5*pi+4))*200)+ rand(1,8)*100;
+X(6,:) = round(sin(0:5/2:(5*pi+4))*200)+ rand(1,8)*100;
+X(7,:) = round(sin(0:5/2:(5*pi+4))*200)+ rand(1,8)*100;
+X(8,:) = round(sin(0:5/2:(5*pi+4))*200)+ rand(1,8)*100;
+plot(X')
+for i= 1:8
+X(:,i)=zNorm(X(:,i));
+
+end
+C= (X'*X);
+[V,D] =eig(C);
+V
+X*V(:,7);
+plot(X*V(:,7),X*V(:,8),'*')
+
+
+=====================================================
+
+plot(data')
+for i= 1:1000
+data(:,i)=zNorm(data(:,i));
+
+end
+C= (data'*data);
+
+[V,D] =eig(C);
+%D
+%m=maxvalueindex
+V(:,1000);
+data*V(:,1000);
+x=data*V(:,998); 
+y=data*V(:,999); 
+x998_m20tom25=0;
+x998_21to20=0;
+x998_12to4=0;
+x998_4to0=0;
+x998_0tom8=0;
+
+x999_m20tom21=0;
+x999_m4tom12=0;
+x999_m1tom4=0;
+x999_3p5tom1=0;
+x999_4to8p5=0;
+x999_8p5to12=0;
+x999_16to25=0;
+for j=1:10000 
+if x(j)<=-20 && x(j)>=-25
+x998_m20tom25=x998_m20tom25+1;
+elseif x(j)<=0 && x(j)>=-8
+x998_0tom8=x998_0tom8+1;
+elseif x(j)<=4 && x(j)>0
+x998_4to0=x998_4to0+1;
+elseif x(j)<=12 && x(j)>4
+x998_12to4=x998_12to4+1;
+elseif x(j)<=21 && x(j)>=20
+x998_21to20=x998_21to20+1;
+end
+end
+for k=1:10000 
+if y(k)<=-20 && y(k)>=-21
+x999_m20tom21=x999_m20tom21+1;
+elseif y(k)<=-4 && y(k)>=-12
+x999_m4tom12=x999_m4tom12+1;
+elseif y(k)<=-1 && y(k)>-4
+x999_m1tom4=x999_m1tom4+1;
+elseif y(k)<=3.5 && y(k)>-1
+x999_3p5tom1=x999_3p5tom1+1;
+elseif y(k)<=8.5 && y(k)>=4
+x999_4to8p5=x999_4to8p5+1;
+elseif y(k)<=12 && y(k)>8.5
+x999_8p5to12=x999_8p5to12+1;
+elseif y(k)<=25 && y(k)>=16
+x999_16to25=x999_16to25+1;
+end
+end
+x998_m20tom25
+x998_0tom8
+x998_4to0
+x998_12to4
+x998_21to20
+
+x999_m20tom21
+x999_m4tom12
+x999_m1tom4
+x999_3p5tom1
+x999_4to8p5
+x999_8p5to12
+x999_16to25
+plot(data*V(:,998),data*V(:,999),'*')
+======================================================
+
+plot(data')
+for i= 1:1000
+data(:,i)=zNorm(data(:,i));
+
+end
+C= (data'*data);
+
+[V,D] =eig(C);
+%D
+%m=maxvalueindex
+V(:,1000);
+data*V(:,1000);
+x=data*V(:,998); 
+y=data*V(:,999); 
+cl1=0;
+cl2=0;
+cl3=0;
+cl4=0;
+cl5=0;
+cl6=0;
+cl7=0;
+cl8=0;
+cl9=0;
+for j=1:10000 
+if (x(j)<=-20 && x(j)>=-25) && (y(j)<=-6 && y(j)>=-7.5)
+cl1=cl1+1;
+elseif (x(j)<=0 && x(j)>=-8) && (y(j)<=-4 && y(j)>=-12)
+cl2=cl2+1;
+elseif (x(j)<=1 && x(j)>=-4) && (y(j)<=-1 && y(j)>=-4)
+cl3=cl3+1;
+elseif (x(j)<=1 && x(j)>=-4) && (y(j)<=3.5 && y(j)>=-0.5)
+cl4=cl4+1;
+elseif (x(j)<=-0.75 && x(j)>=-5) && (y(j)<=8 && y(j)>=5)
+cl5=cl5+1;
+elseif (x(j)<=4 && x(j)>=-0.75) && (y(j)<=8 && y(j)>=4)
+cl6=cl6+1;
+elseif (x(j)<=11 && x(j)>=4) && (y(j)<=12 && y(j)>=7.5)
+cl7=cl7+1;
+elseif (x(j)<=12 && x(j)>=2) && (y(j)<=24 && y(j)>=18)
+cl8=cl8+1;
+elseif (x(j)<=20.6 && x(j)>=20.2) && (y(j)<=-20.2 && y(j)>=-20.6)
+cl9=cl9+1;
+end
+end
+cl1
+cl2
+cl3
+cl4
+cl5
+cl6
+cl7
+cl8
+cl9
+plot(data*V(:,998),data*V(:,999),'*')
+
+===============================
+
+for k=1:10000 
+if y(k)<=-20 && y(k)>=-21
+x999_m20tom21=x999_m20tom21+1;
+elseif y(k)<=-4 && y(k)>=-12
+x999_m4tom12=x999_m4tom12+1;
+elseif y(k)<=-1 && y(k)>-4
+x999_m1tom4=x999_m1tom4+1;
+elseif y(k)<=3.5 && y(k)>-1
+x999_3p5tom1=x999_3p5tom1+1;
+elseif y(k)<=8.5 && y(k)>=4
+x999_4to8p5=x999_4to8p5+1;
+elseif y(k)<=12 && y(k)>8.5
+x999_8p5to12=x999_8p5to12+1;
+elseif y(k)<=25 && y(k)>=16
+x999_16to25=x999_16to25+1;
+end
+end
+
+
+
+===================================================
+
+function y =zNorm(x) 
+y = (x-mean(x))./std(x,1);
